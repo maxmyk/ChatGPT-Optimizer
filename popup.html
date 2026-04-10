@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ChatGPT DOM Trimmer</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        width: 320px;
+        min-width: 280px;
+        margin: 0;
+        padding: 14px;
+      }
+
+      h1 {
+        font-size: 16px;
+        margin: 0 0 12px 0;
+      }
+
+      .row {
+        margin: 10px 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      .checkbox-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-start;
+        margin-bottom: 0;
+      }
+
+      .checkbox-row input {
+        width: auto;
+        margin: 0;
+      }
+
+      input,
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        font: inherit;
+        padding: 8px;
+        border-radius: 0;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      #status,
+      #removedCount {
+        margin-top: 8px;
+        font-size: 12px;
+        opacity: 0.75;
+        min-height: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ChatGPT DOM Trimmer</h1>
+
+    <div class="row">
+      <label class="checkbox-row">
+        <input id="enabled" type="checkbox" />
+        <span>Enabled</span>
+      </label>
+    </div>
+
+    <div class="row">
+      <label for="keepCount">Keep newest messages</label>
+      <input id="keepCount" type="number" min="1" max="300" />
+    </div>
+
+    <div class="row">
+      <label for="trimThreshold">Do nothing until total messages exceed</label>
+      <input id="trimThreshold" type="number" min="1" max="500" />
+    </div>
+
+    <div id="removedCount"></div>
+
+    <div class="buttons">
+      <button id="save">Save</button>
+      <button id="apply">Apply now</button>
+    </div>
+
+    <div id="status"></div>
+
+    <script src="defaults.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
